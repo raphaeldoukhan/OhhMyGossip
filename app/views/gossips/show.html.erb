@@ -1,0 +1,6 @@
+<h1> <%= @gossips.find(@index).title %> </h1>
+<p> <%= @gossips.find(@index).content %> </p>
+<p> <%= @gossips.find(@index).created_at.strftime("%d/%m/%Y") %> </p> 
+
+<a class="btn btn-primary" href="<%=edit_gossip_path(params[:id])%>" role="button">Modifier le potin</a>
+<p> <%= link_to 'Delete', gossip_path(@gossip.id), method: :delete, data: { confirm: 'Are you sure?' } %> </p>
