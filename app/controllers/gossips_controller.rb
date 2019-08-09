@@ -5,7 +5,7 @@ class GossipsController < ApplicationController
 
       def create
         @gossip = Gossip.new(gossip_params)
-        @gossip.user_id=rand(1..10)
+        @gossip.user = User.find_by(id: session[:user_id])
         if @gossip.save
             redirect_to '/'
         else
