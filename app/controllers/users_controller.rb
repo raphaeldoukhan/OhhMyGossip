@@ -15,7 +15,7 @@ class UsersController < ApplicationController
         if @user.valid?
             @user.save
             flash[:notice] = "Création réussie"
-            redirect_to '/'
+            redirect_to new_session_path
         else
             render new_user_path  
         end 
@@ -27,18 +27,11 @@ class UsersController < ApplicationController
             @user.update_attributes(confirmed: true, confirmation_token: nil)
             @user.save(validate:false)
             session[:auth] = {id: @user.id}
-            redirect_to profil_path, success: 'Votre compte a bien été confirmé'
+            redirect_to new_session, success: 'Votre compte a bien été confirmé'
         else
             redirect_to new_user_path, danger: 'ce token ne semble pas valide'
         end
     end
-
-    #  def edit 
-    #     @user = User.find(session[:auth]['id'])
-    #  end
-
-    # def update
-    # end 
 
     private
     

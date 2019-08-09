@@ -1,3 +1,13 @@
+<% if flash[:notice] %>
+<div class="alert_y">
+<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+
+  <p><%= flash[:notice]%></p>
+</div>
+<% end %>
+
+
+
 <div class="album py-5 bg-light">
     <div class="container">
       <div class="row">
