@@ -1,4 +1,8 @@
 class SessionsController < ApplicationController
+    
+    skip_before_action :only_signed_in
+
+    
     def new
       @error = 0
     end

@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+    skip_before_action :only_signed_in
+    
     def show 
         @users = User.all
         @index = params[:id]
