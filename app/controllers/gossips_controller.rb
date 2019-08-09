@@ -1,4 +1,7 @@
 class GossipsController < ApplicationController
+    
+    before_action :only_author, only: [:edit, :update, :destroy]
+    
     def new
         @gossip = Gossip.new
       end
